@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - ShopEasy</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-XXXXXXX');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>ShopEasy</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="products.html" class="nav-link">Products</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="cart.html" class="nav-link cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart-container">
+            <div class="container">
+                <h1>Your Shopping Cart</h1>
+
+                <div class="cart-content">
+                    <div class="cart-items">
+                        <!-- Cart items will be populated by JavaScript -->
+                        <p>Loading cart...</p>
+                    </div>
+
+                    <div class="cart-total">
+                        <h3>Order Summary</h3>
+                        <div class="total-breakdown">
+                            <div class="total-line">
+                                <span>Subtotal:</span>
+                                <span class="cart-total-amount">$0.00</span>
+                            </div>
+                            <div class="total-line">
+                                <span>Shipping:</span>
+                                <span>$9.99</span>
+                            </div>
+                            <div class="total-line">
+                                <span>Tax:</span>
+                                <span class="tax-amount">$0.00</span>
+                            </div>
+                            <div class="total-line final-total">
+                                <span><strong>Total:</strong></span>
+                                <span class="final-total-amount"><strong>$0.00</strong></span>
+                            </div>
+                        </div>
+
+                        <button class="checkout-btn" data-gtm-event="begin_checkout">
+                            Proceed to Checkout
+                        </button>
+
+                        <a href="products.html" class="continue-shopping">
+                            Continue Shopping
+                        </a>
+                    </div>
+                </div>
+
+                <div class="empty-cart" style="display: none;">
+                    <h2>Your cart is empty</h2>
+                    <p>Looks like you haven't added any items to your cart yet.</p>
+                    <a href="products.html" class="cta-button">Start Shopping</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ShopEasy</h3>
+                    <p>Your trusted online shopping destination</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShopEasy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Cart-specific initialization
+        document.addEventListener('DOMContentLoaded', function () {
+            renderCart();
+            updateCartTotals();
+        });
+
+        function updateCartTotals() {
+            const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+            const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            const shipping = subtotal > 0 ? 9.99 : 0;
+            const tax = subtotal * 0.08; // 8% tax
+            const finalTotal = subtotal + shipping + tax;
+
+            document.querySelector('.cart-total-amount').textContent = `$${subtotal.toFixed(2)}`;
+            document.querySelector('.tax-amount').textContent = `$${tax.toFixed(2)}`;
+            document.querySelector('.final-total-amount').textContent = `$${finalTotal.toFixed(2)}`;
+
+            // Show/hide empty cart state
+            const cartContent = document.querySelector('.cart-content');
+            const emptyCart = document.querySelector('.empty-cart');
+
+            if (cart.length === 0) {
+                cartContent.style.display = 'none';
+                emptyCart.style.display = 'block';
+            } else {
+                cartContent.style.display = 'block';
+                emptyCart.style.display = 'none';
+            }
+        }
+
+        // Override the global renderCart function for this page
+        function renderCart() {
+            const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+            const cartContainer = document.querySelector('.cart-items');
+
+            if (!cartContainer) return;
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+                updateCartTotals();
+                return;
+            }
+
+            let cartHTML = '';
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+
+                cartHTML += `
+                    <div class="cart-item">
+                        <div class="item-info">
+                            <h4>${item.name}</h4>
+                            <p class="item-price">$${item.price.toFixed(2)} each</p>
+                        </div>
+                        <div class="quantity-controls">
+                            <button onclick="updateQuantity('${item.id}', ${item.quantity - 1})">-</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button onclick="updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
+                        </div>
+                        <div class="item-total">
+                            <p class="total-price">$${itemTotal.toFixed(2)}</p>
+                            <button onclick="removeFromCart('${item.id}')" class="remove-btn">Remove</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartContainer.innerHTML = cartHTML;
+            updateCartTotals();
+        }
+
+        function updateQuantity(productId, newQuantity) {
+            let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+
+            if (newQuantity <= 0) {
+                removeFromCart(productId);
+                return;
+            }
+
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            if (itemIndex > -1) {
+                cart[itemIndex].quantity = newQuantity;
+                localStorage.setItem('shoppingCart', JSON.stringify(cart));
+                updateCartCount();
+                renderCart();
+
+                // GTM quantity update tracking
+                dataLayer.push({
+                    'event': 'cart_quantity_update',
+                    'item_id': productId,
+                    'new_quantity': newQuantity
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

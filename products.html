@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - ShopEasy</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-XXXXXXX');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>ShopEasy</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="products.html" class="nav-link">Products</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="cart.html" class="nav-link cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products-header">
+            <div class="container">
+                <h1>Our Products</h1>
+                <p>Browse our amazing collection of products</p>
+            </div>
+        </section>
+
+        <section class="filter-section">
+            <div class="container">
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search products...">
+                </div>
+                <div class="filters">
+                    <button class="filter-btn active" data-category="all">All Products</button>
+                    <button class="filter-btn" data-category="electronics">Electronics</button>
+                    <button class="filter-btn" data-category="accessories">Accessories</button>
+                    <button class="filter-btn" data-category="clothing">Clothing</button>
+                    <button class="filter-btn" data-category="home">Home & Garden</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-grid-section">
+            <div class="container">
+                <div class="product-grid">
+                    <!-- Electronics -->
+                    <div class="product-card" data-product-id="4" data-product-name="Smartphone"
+                        data-product-price="599.99" data-category="electronics">
+                        <img src="https://via.placeholder.com/300x200?text=Smartphone" alt="Smartphone">
+                        <div class="product-info">
+                            <h3>Latest Smartphone</h3>
+                            <p class="price">$599.99</p>
+                            <button class="add-to-cart-btn" data-product-id="4">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="5" data-product-name="Tablet" data-product-price="299.99"
+                        data-category="electronics">
+                        <img src="https://via.placeholder.com/300x200?text=Tablet" alt="Tablet">
+                        <div class="product-info">
+                            <h3>10-inch Tablet</h3>
+                            <p class="price">$299.99</p>
+                            <button class="add-to-cart-btn" data-product-id="5">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="6" data-product-name="Bluetooth Speaker"
+                        data-product-price="79.99" data-category="electronics">
+                        <img src="https://via.placeholder.com/300x200?text=Bluetooth+Speaker" alt="Bluetooth Speaker">
+                        <div class="product-info">
+                            <h3>Portable Bluetooth Speaker</h3>
+                            <p class="price">$79.99</p>
+                            <button class="add-to-cart-btn" data-product-id="6">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="1" data-product-name="Wireless Headphones"
+                        data-product-price="99.99" data-category="electronics">
+                        <img src="https://via.placeholder.com/300x200?text=Wireless+Headphones"
+                            alt="Wireless Headphones">
+                        <div class="product-info">
+                            <h3>Wireless Headphones</h3>
+                            <p class="price">$99.99</p>
+                            <button class="add-to-cart-btn" data-product-id="1">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Accessories -->
+                    <div class="product-card" data-product-id="2" data-product-name="Smart Watch"
+                        data-product-price="199.99" data-category="accessories">
+                        <img src="https://via.placeholder.com/300x200?text=Smart+Watch" alt="Smart Watch">
+                        <div class="product-info">
+                            <h3>Smart Watch</h3>
+                            <p class="price">$199.99</p>
+                            <button class="add-to-cart-btn" data-product-id="2">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="3" data-product-name="Laptop Bag"
+                        data-product-price="49.99" data-category="accessories">
+                        <img src="https://via.placeholder.com/300x200?text=Laptop+Bag" alt="Laptop Bag">
+                        <div class="product-info">
+                            <h3>Premium Laptop Bag</h3>
+                            <p class="price">$49.99</p>
+                            <button class="add-to-cart-btn" data-product-id="3">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="7" data-product-name="Phone Case"
+                        data-product-price="19.99" data-category="accessories">
+                        <img src="https://via.placeholder.com/300x200?text=Phone+Case" alt="Phone Case">
+                        <div class="product-info">
+                            <h3>Protective Phone Case</h3>
+                            <p class="price">$19.99</p>
+                            <button class="add-to-cart-btn" data-product-id="7">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="8" data-product-name="Wireless Charger"
+                        data-product-price="39.99" data-category="accessories">
+                        <img src="https://via.placeholder.com/300x200?text=Wireless+Charger" alt="Wireless Charger">
+                        <div class="product-info">
+                            <h3>Fast Wireless Charger</h3>
+                            <p class="price">$39.99</p>
+                            <button class="add-to-cart-btn" data-product-id="8">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Clothing -->
+                    <div class="product-card" data-product-id="9" data-product-name="T-Shirt" data-product-price="24.99"
+                        data-category="clothing">
+                        <img src="https://via.placeholder.com/300x200?text=T-Shirt" alt="T-Shirt">
+                        <div class="product-info">
+                            <h3>Cotton T-Shirt</h3>
+                            <p class="price">$24.99</p>
+                            <button class="add-to-cart-btn" data-product-id="9">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="10" data-product-name="Jeans" data-product-price="59.99"
+                        data-category="clothing">
+                        <img src="https://via.placeholder.com/300x200?text=Jeans" alt="Jeans">
+                        <div class="product-info">
+                            <h3>Designer Jeans</h3>
+                            <p class="price">$59.99</p>
+                            <button class="add-to-cart-btn" data-product-id="10">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="11" data-product-name="Sneakers"
+                        data-product-price="89.99" data-category="clothing">
+                        <img src="https://via.placeholder.com/300x200?text=Sneakers" alt="Sneakers">
+                        <div class="product-info">
+                            <h3>Sport Sneakers</h3>
+                            <p class="price">$89.99</p>
+                            <button class="add-to-cart-btn" data-product-id="11">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Home & Garden -->
+                    <div class="product-card" data-product-id="12" data-product-name="Coffee Maker"
+                        data-product-price="79.99" data-category="home">
+                        <img src="https://via.placeholder.com/300x200?text=Coffee+Maker" alt="Coffee Maker">
+                        <div class="product-info">
+                            <h3>Automatic Coffee Maker</h3>
+                            <p class="price">$79.99</p>
+                            <button class="add-to-cart-btn" data-product-id="12">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="13" data-product-name="Plant Pot"
+                        data-product-price="15.99" data-category="home">
+                        <img src="https://via.placeholder.com/300x200?text=Plant+Pot" alt="Plant Pot">
+                        <div class="product-info">
+                            <h3>Ceramic Plant Pot</h3>
+                            <p class="price">$15.99</p>
+                            <button class="add-to-cart-btn" data-product-id="13">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="14" data-product-name="Desk Lamp"
+                        data-product-price="45.99" data-category="home">
+                        <img src="https://via.placeholder.com/300x200?text=Desk+Lamp" alt="Desk Lamp">
+                        <div class="product-info">
+                            <h3>LED Desk Lamp</h3>
+                            <p class="price">$45.99</p>
+                            <button class="add-to-cart-btn" data-product-id="14">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ShopEasy</h3>
+                    <p>Your trusted online shopping destination</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShopEasy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
